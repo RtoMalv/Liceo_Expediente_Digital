@@ -1,5 +1,5 @@
 -- Script de creación (el mismo que me compartiste)
--- Puedes ejecutarlo en SQL Developer: @database/script_creacion.sql
+
 -- Incluye índices.
 
 -- 1. TABLA USUARIO

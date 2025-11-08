@@ -20,7 +20,7 @@
 --  - sp_upd_foto             : Actualizar archivo de fotografía del estudiante
 ------------------------------------------------------------------------
 
--- Limpieza opcional por si quedó algo inválido
+-- Limpieza  por si quedó algo inválido
 BEGIN EXECUTE IMMEDIATE 'DROP PACKAGE BODY api_expd'; EXCEPTION WHEN OTHERS THEN NULL; END;
 /
 BEGIN EXECUTE IMMEDIATE 'DROP PACKAGE api_expd';       EXCEPTION WHEN OTHERS THEN NULL; END;
@@ -324,19 +324,5 @@ END api_expd;
 ------------------------------------------------------------------------
 SHOW ERRORS PACKAGE api_expd;
 
---
 
--- Pruebas manuales:
--- SET SERVEROUTPUT ON
--- DECLARE v_ok NUMBER; v_rol VARCHAR2(20); v_id NUMBER;
--- BEGIN
---   api_expd.sp_login('asistente','1234', v_ok, v_rol, v_id);
---   DBMS_OUTPUT.put_line('ok='||v_ok||' rol='||v_rol||' id='||v_id);
--- END;
--- /
---
--- VAR c REFCURSOR
--- EXEC api_expd.sp_get_ruta_de_est(1, :c); PRINT c;
--- EXEC api_expd.sp_list_permisos(1, :c);  PRINT c;
--- EXEC api_expd.sp_get_estudiante(1, :c); PRINT c;
 ------------------------------------------------------------------------
