@@ -17,3 +17,7 @@ La solución está desarrollada en **Oracle Database** con procedimientos almace
 - **Versionar el código y los scripts SQL** utilizando GitHub para mantener control de cambios y evidencias de avance.
 
 ---
+
+
+## MUY IMPORTANTE ***************************!!!!!!!!!
+-- El proyecto se realizó con VSC en un entorno MacOS pero la base de datos en una máquina virtual VMWare Fusion en Windows, por lo que la conexion a pesar de ser local debió conficugarse de manera que la aplicación Java se conectara a la ip de la máquina virtal. Esto se observa en DBConection.java en el proyecto
