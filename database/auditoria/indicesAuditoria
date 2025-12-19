@@ -1,0 +1,5 @@
+CREATE INDEX idx_auditoria_tabla
+ON AUDITORIA_SISTEMA(tabla_afectada);
+
+CREATE INDEX idx_auditoria_fecha
+ON AUDITORIA_SISTEMA(fecha_evento);

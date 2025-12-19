@@ -1,0 +1,22 @@
+--------------------------------------------------------------------------------
+-- AUDITORÍA DE CONSULTAS AL EXPEDIENTE
+--------------------------------------------------------------------------------
+CREATE OR REPLACE TRIGGER trg_aud_consulta
+AFTER INSERT ON CONSULTA
+FOR EACH ROW
+BEGIN
+    INSERT INTO AUDITORIA_SISTEMA (
+        tabla_afectada,
+        operacion,
+        usuario_bd,
+        detalle
+    ) VALUES (
+        'CONSULTA',
+        'SELECT',
+        SYS_CONTEXT('USERENV','SESSION_USER'),
+        'USUARIO_ID=' || :NEW.id_usuario ||
+        ', ESTUDIANTE_ID=' || :NEW.id_estudiante ||
+        ', ACCION=' || :NEW.accion
+    );
+END;
+/

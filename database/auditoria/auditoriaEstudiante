@@ -1,0 +1,24 @@
+--------------------------------------------------------------------------------
+-- AUDITORÍA DE CAMBIOS EN ESTUDIANTE
+--------------------------------------------------------------------------------
+CREATE OR REPLACE TRIGGER trg_aud_estudiante
+AFTER INSERT OR UPDATE OR DELETE ON ESTUDIANTE
+FOR EACH ROW
+BEGIN
+    INSERT INTO AUDITORIA_SISTEMA (
+        tabla_afectada,
+        operacion,
+        usuario_bd,
+        detalle
+    ) VALUES (
+        'ESTUDIANTE',
+        CASE
+            WHEN INSERTING THEN 'INSERT'
+            WHEN UPDATING THEN 'UPDATE'
+            WHEN DELETING THEN 'DELETE'
+        END,
+        SYS_CONTEXT('USERENV','SESSION_USER'),
+        'ID_ESTUDIANTE=' || NVL(:NEW.id_estudiante, :OLD.id_estudiante)
+    );
+END;
+/

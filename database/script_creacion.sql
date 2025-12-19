@@ -1,4 +1,4 @@
--- Script de creación (el mismo que me compartiste)
+-- Script de creación 
 
 -- Incluye índices.
 
